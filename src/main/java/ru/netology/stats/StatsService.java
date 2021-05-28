@@ -10,12 +10,14 @@ public class StatsService {
     }
 
     public int averageSum(int[] sales) {
-        int sum = 0;
+        int avgSum = calculateSum(sales);
         int average = 0;
+        int month = 0;
         for (int sale : sales) {
-            sum += sale;
+            month++;
         }
-        average = sum / 12;
+        average = avgSum / month;
+
         return average;
     }
 
@@ -44,7 +46,7 @@ public class StatsService {
     }
 
     public int smallSales(int[] sales) {
-        int averge = 15;
+        int averge = averageSum(sales);
         int amountMonth = 0;
         for (int sale : sales) {
             if (sale < averge) {
@@ -57,7 +59,7 @@ public class StatsService {
 
 
     public int bigSales(int[] sales) {
-        int averge = 15;
+        int averge = averageSum(sales);
         int amountMonth = 0;
         for (int sale : sales) {
             if (sale > averge) {
